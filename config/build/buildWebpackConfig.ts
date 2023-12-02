@@ -10,13 +10,13 @@ export function buildWebpackConfig(
 ): webpack.Configuration {
 	const { mode, paths, isDev } = options;
 
-	return { 
+	return {
 		mode,
 		entry: paths.entry,
 		module: {
 			rules: buildLoaders(options),
 		},
-		resolve: buildResolvers(),
+		resolve: buildResolvers(options),
 		output: {
 			filename: "[name].[contenthash].js",
 			path: paths.build,
