@@ -19,6 +19,6 @@ export function buildPlugins({
             chunkFilename: 'css/[name].[contenthash:8].css',
         }),
         new webpack.DefinePlugin({ __IS_DEV__: JSON.stringify(isDev) }),
-        isDev && new ReactRefreshPlugin(),
+        isDev && new ReactRefreshPlugin({ overlay: false }),
     ].filter(Boolean);
 }
