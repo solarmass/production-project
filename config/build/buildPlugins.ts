@@ -3,6 +3,7 @@ import webpack from 'webpack';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins({
@@ -20,5 +21,6 @@ export function buildPlugins({
         }),
         new webpack.DefinePlugin({ __IS_DEV__: JSON.stringify(isDev) }),
         isDev && new ReactRefreshPlugin({ overlay: false }),
+        new BundleAnalyzerPlugin({ openAnalyzer: false }),
     ].filter(Boolean);
 }
