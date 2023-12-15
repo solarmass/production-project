@@ -10,7 +10,7 @@ export function buildPlugins({
     paths,
     isDev,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
-    return [
+    const plugins = [
         new HTMLWebpackPlugin({
             template: paths.html,
         }),
@@ -20,7 +20,14 @@ export function buildPlugins({
             chunkFilename: 'css/[name].[contenthash:8].css',
         }),
         new webpack.DefinePlugin({ __IS_DEV__: JSON.stringify(isDev) }),
-        isDev && new ReactRefreshPlugin({ overlay: false }),
-        new BundleAnalyzerPlugin({ openAnalyzer: false }),
-    ].filter(Boolean);
+    ];
+
+    if (isDev) {
+        plugins.push(new ReactRefreshPlugin({ overlay: false }));
+        plugins.push(
+            new BundleAnalyzerPlugin({ openAnalyzer: false }),
+        );
+    }
+
+    return plugins;
 }
