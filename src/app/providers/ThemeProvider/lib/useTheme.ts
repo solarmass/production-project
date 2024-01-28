@@ -14,10 +14,10 @@ export const useTheme: () => UseThemeResult = () => {
     const { theme, setTheme } = useContext(ThemeContext);
 
     return {
-        theme,
+        theme: theme || Theme.LIGHT,
         toggleTheme: () => {
             const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
-            setTheme(newTheme);
+            setTheme?.(newTheme);
             document.body.className = newTheme;
             localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
         },

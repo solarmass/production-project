@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { Mods, classNames } from 'shared/lib/classNames/classNames';
 import {
     ReactNode, MouseEvent, useState, useRef, useEffect, useCallback,
 } from 'react';
@@ -26,7 +26,7 @@ export const Modal = (props: ModalProps) => {
 
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
-    const timerRef = useRef<ReturnType<typeof setTimeout>>();
+    const timerRef = useRef<ReturnType<Window['setTimeout']> | undefined>(undefined);
 
     useEffect(() => {
         if (isOpen) {
@@ -38,7 +38,7 @@ export const Modal = (props: ModalProps) => {
         if (onClose) {
             setIsClosing(true);
 
-            timerRef.current = setTimeout(() => {
+            timerRef.current = window.setTimeout(() => {
                 onClose();
                 setIsClosing(false);
             }, ANIMATION_DELAY);
@@ -65,7 +65,7 @@ export const Modal = (props: ModalProps) => {
         };
     }, [isOpen, onKeyDown]);
 
-    const mods = {
+    const mods: Mods = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
     };
