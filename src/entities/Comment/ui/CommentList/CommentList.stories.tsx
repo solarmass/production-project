@@ -1,13 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { [FTName] } from './[FTName]';
+import { CommentList } from './CommentList';
 
 const meta = {
-    title: 'shared/[FTName]',
-    component: [FTName],
+    title: 'shared/CommentList',
+    component: CommentList,
     argTypes: {
-        backgroundColor: { control: 'color' },
     },
-} satisfies Meta<typeof [FTName]>;
+} satisfies Meta<typeof CommentList>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
