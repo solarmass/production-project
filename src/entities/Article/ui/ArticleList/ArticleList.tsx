@@ -28,14 +28,6 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
     } = props;
     const { t } = useTranslation();
 
-    if (isLoading) {
-        return (
-            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-                {getSkeletons(view)}
-            </div>
-        );
-    }
-
     const renderArticle = (article: Article) => (
         <ArticleListItem
             className={cls.card}
@@ -45,11 +37,14 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
         />
     );
 
+    console.log(`isLoading ${isLoading}`);
+
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
             {articles.length > 0
                 ? articles.map(renderArticle)
                 : null}
+            {isLoading && getSkeletons(view)}
         </div>
     );
 };
