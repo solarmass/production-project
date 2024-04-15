@@ -34,6 +34,7 @@ export const CommentList: FC<CommentListProps> = (props) => {
                         isLoading={isLoading}
                         className={cls.comment}
                         comment={comment}
+                        key={comment.id}
                     />
                 ))
                 : <Text text={t('Комментарии отсутствуют')} />}
