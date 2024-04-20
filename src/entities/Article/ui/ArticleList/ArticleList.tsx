@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react';
+import { FC, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextSize } from 'shared/ui/Text/Text';
@@ -12,6 +12,7 @@ interface ArticleListProps {
    articles: Article[];
    isLoading?: boolean;
    view?: ArticleView;
+   target?: HTMLAttributeAnchorTarget;
 }
 
 const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
@@ -26,6 +27,7 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
         articles,
         view = ArticleView.SMALL,
         isLoading,
+        target,
     } = props;
     const { t } = useTranslation();
 
@@ -35,6 +37,7 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
             article={article}
             view={view}
             key={article.id}
+            target={target}
         />
     );
 
