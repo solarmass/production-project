@@ -22,6 +22,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'mflash-plugin',
     ],
     rules: {
         indent: [2, 4],
@@ -56,6 +57,7 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'linebreak-style': 'off',
         'arrow-body-style': 'off',
+        'mflash-plugin/path-checker': 'error',
     },
     globals: {
         __IS_DEV__: true,
