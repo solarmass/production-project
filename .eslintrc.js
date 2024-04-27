@@ -55,6 +55,7 @@ module.exports = {
                 'align',
                 'direction',
                 'gap',
+                'fallback',
             ],
         }],
         'max-len': ['error', { ignoreComments: true, code: 125 }],
