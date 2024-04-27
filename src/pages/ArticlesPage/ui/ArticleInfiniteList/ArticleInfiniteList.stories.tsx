@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ArticleEditPage from './ArticleEditPage';
+import { ArticleInfiniteList } from './ArticleInfiniteList';
 
 const meta = {
-    title: 'pages/ArticleEditPage/ArticleEditPage',
-    component: ArticleEditPage,
-} satisfies Meta<typeof ArticleEditPage>;
+    title: 'shared/ArticleInfiniteList',
+    component: ArticleInfiniteList,
+} satisfies Meta<typeof ArticleInfiniteList>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
