@@ -1,5 +1,5 @@
 import {
-    FC, memo, useCallback, useEffect,
+    memo, useCallback, useEffect,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -15,7 +15,8 @@ import { Icon } from 'shared/ui/Icon/Icon';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { ArticleCodeBlockComponent } from '../../ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleBlock } from '../../model/types/article';
+import { ArticleBlockType } from '../../model/consts/articleConsts';
 import {
     getArticleDetailsData,
     getArticleDetailsError,

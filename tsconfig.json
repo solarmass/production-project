@@ -18,6 +18,7 @@
 		},
 		// если какая-либо библиотека не имеет default import, лоадеры вроде ts-loader или babel-loader автоматически создают их
 		"allowSyntheticDefaultImports": true,
+        "isolatedModules": true
 	},
 	"ts-node": {
 		"compilerOptions": {
