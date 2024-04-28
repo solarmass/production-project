@@ -14,7 +14,7 @@
 		// для абсолютного импорта
 		"baseUrl": ".",
 		"paths": {
-			"*": ["./src/*"]
+			"@/*": ["./src/*"]
 		},
 		// если какая-либо библиотека не имеет default import, лоадеры вроде ts-loader или babel-loader автоматически создают их
 		"allowSyntheticDefaultImports": true,
