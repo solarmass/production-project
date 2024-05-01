@@ -70,6 +70,13 @@ module.exports = {
         'linebreak-style': 'off',
         'arrow-body-style': 'off',
         'mflash-plugin/path-checker': ['error', { alias: '@' }],
+        'mflash-plugin/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
         'mflash-plugin/public-api-imports': ['error', {
             alias: '@',
             testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'],
