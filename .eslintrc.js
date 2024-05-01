@@ -69,7 +69,7 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'linebreak-style': 'off',
         'arrow-body-style': 'off',
-        'mflash-plugin/path-checker': 'error',
+        'mflash-plugin/path-checker': ['error', { alias: '@' }],
     },
     globals: {
         __IS_DEV__: true,
