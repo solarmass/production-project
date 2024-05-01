@@ -70,6 +70,7 @@ module.exports = {
         'linebreak-style': 'off',
         'arrow-body-style': 'off',
         'mflash-plugin/path-checker': ['error', { alias: '@' }],
+        'mflash-plugin/public-api-imports': ['error', { alias: '@' }],
     },
     globals: {
         __IS_DEV__: true,
