@@ -23,6 +23,7 @@ module.exports = {
         'i18next',
         'react-hooks',
         'mflash-plugin',
+        'unused-imports',
     ],
     rules: {
         indent: [2, 4],
@@ -81,6 +82,7 @@ module.exports = {
             alias: '@',
             testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'],
         }],
+        'unused-imports/no-unused-imports': 'error',
     },
     globals: {
         __IS_DEV__: true,
