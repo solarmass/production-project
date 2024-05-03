@@ -11,11 +11,11 @@ export const Counter = () => {
     const { decrement, increment, add } = useCounterActions();
 
     const handleInc = () => {
-        decrement();
+        increment();
     };
 
     const handleDec = () => {
-        increment();
+        decrement();
     };
 
     const handleAddFive = () => {
