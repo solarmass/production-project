@@ -59,6 +59,7 @@ module.exports = {
                 'gap',
                 'fallback',
                 'border',
+                'feature',
             ],
         }],
         'max-len': ['error', { ignoreComments: true, code: 125 }],
