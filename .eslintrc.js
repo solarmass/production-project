@@ -60,6 +60,8 @@ module.exports = {
                 'fallback',
                 'border',
                 'feature',
+                'color',
+                'variant',
             ],
         }],
         'max-len': ['error', { ignoreComments: true, code: 125 }],
