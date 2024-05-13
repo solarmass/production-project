@@ -30,6 +30,7 @@
     .footer {
         display: flex;
         align-items: center;
+        margin-top: 16px;
     }
 
     .textBlock {
@@ -72,9 +73,9 @@
     }
 
     .infoWrapper {
-        margin-top: 8px;
         display: flex;
         align-items: center;
+        margin-top: 8px;
     }
 
     .types p {
@@ -94,8 +95,8 @@
     }
 
     .title p {
-        white-space: nowrap;
         width: 200px;
+        white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }

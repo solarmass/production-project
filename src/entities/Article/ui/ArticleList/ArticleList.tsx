@@ -1,28 +1,33 @@
-import { FC, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { ArticleView } from '../../model/consts/articleConsts';
+import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 import { Article } from '../../model/types/article';
-import { ArticleView } from '../../model/consts/articleConsts';
-import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
-import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
 interface ArticleListProps {
-   className?: string;
-   articles: Article[];
-   isLoading?: boolean;
-   view?: ArticleView;
-   target?: HTMLAttributeAnchorTarget;
+    className?: string;
+    articles: Article[];
+    isLoading?: boolean;
+    target?: HTMLAttributeAnchorTarget;
+    view?: ArticleView;
 }
 
-const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
-    .fill(0)
-    .map((item, index) => (
-        <ArticleListItemSkeleton className={cls.card} key={index} view={view} />
-    ));
+const getSkeletons = (view: ArticleView) =>
+    new Array(view === ArticleView.SMALL ? 9 : 3)
+        .fill(0)
+        .map((item, index) => (
+            <ArticleListItemSkeleton
+                className={cls.card}
+                key={index}
+                view={view}
+            />
+        ));
 
-export const ArticleList: FC<ArticleListProps> = (props) => {
+export const ArticleList = memo((props: ArticleListProps) => {
     const {
         className,
         articles,
@@ -32,20 +37,17 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
     } = props;
     const { t } = useTranslation();
 
-    const renderArticle = (article: Article) => (
-        <ArticleListItem
-            className={cls.card}
-            article={article}
-            view={view}
-            key={article.id}
-            target={target}
-        />
-    );
-
     if (!isLoading && !articles.length) {
-        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-            <Text size={TextSize.L} title={t('Статьи не найдены')} />
-        </div>;
+        return (
+            <div
+                className={classNames(cls.ArticleList, {}, [
+                    className,
+                    cls[view],
+                ])}
+            >
+                <Text size={TextSize.L} title={t('Статьи не найдены')} />
+            </div>
+        );
     }
 
     return (
@@ -53,10 +55,16 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
             className={classNames(cls.ArticleList, {}, [className, cls[view]])}
             data-testid="ArticleList"
         >
-            {articles.length > 0
-                ? articles.map(renderArticle)
-                : null}
+            {articles.map((item) => (
+                <ArticleListItem
+                    article={item}
+                    view={view}
+                    target={target}
+                    key={item.id}
+                    className={cls.card}
+                />
+            ))}
             {isLoading && getSkeletons(view)}
         </div>
     );
-};
+});

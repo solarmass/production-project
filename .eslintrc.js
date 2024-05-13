@@ -62,6 +62,7 @@ module.exports = {
                 'feature',
                 'color',
                 'variant',
+                'size',
             ],
         }],
         'max-len': ['error', { ignoreComments: true, code: 125 }],
